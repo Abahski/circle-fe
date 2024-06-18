@@ -11,6 +11,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { RiHeartLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdExitToApp } from "react-icons/md";
+import ThreadPost from "../../pages/Home/component/ThreadPost";
 
 const MENU = [
   {
@@ -40,6 +41,11 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
   const [showLoginForm, setShowLoginForm] = useState<boolean>(false);
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
+  const [showPostForm, setShowPostForm] = useState<boolean>(false);
+
+  const handleShowPostForm = () => {
+    setShowPostForm(false);
+  };
 
   const handleCloseModal = () => {
     setShowLoginForm(false);
@@ -47,9 +53,14 @@ const Sidebar = () => {
   };
 
   const handleShowRegisterForm = () => {
-   setShowLoginForm(false); 
-   setShowRegisterForm(true);
-};
+    setShowLoginForm(false);
+    setShowRegisterForm(true);
+  };
+
+  const handleShowLoginForm = () => {
+    setShowLoginForm(true);
+    setShowRegisterForm(false);
+  };
 
   return !auth.user ? (
     <>
@@ -71,8 +82,15 @@ const Sidebar = () => {
         show={showLoginForm || showRegisterForm}
       >
         <div>
-          {showLoginForm && <LoginForm onRegisterClick={handleShowRegisterForm} />}
-          {showRegisterForm && <RegisterForm onClose={handleCloseModal} />}
+          {showLoginForm && (
+            <LoginForm onRegisterClick={handleShowRegisterForm} />
+          )}
+          {showRegisterForm && (
+            <RegisterForm
+              onClose={handleCloseModal}
+              onLoginClick={handleShowLoginForm}
+            />
+          )}
         </div>
       </ModalDialog>
     </>
@@ -99,6 +117,11 @@ const Sidebar = () => {
           </Link>
         </Box>
       ))}
+      <Button>Create Post</Button>
+      {/* <ModalDialog callback={handleShowPostForm} show={showPostForm}>
+        <div>{showPostForm && <ThreadPost onClose={handleShowPostForm} />}</div>
+      </ModalDialog> */}
+
       <Box
         sx={{
           display: "flex",

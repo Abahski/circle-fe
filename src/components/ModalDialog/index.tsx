@@ -12,10 +12,9 @@ const style = {
    top: "50%",
    left: "50%",
    transform: "translate(-50%, -50%)",
-   width: 400,
-   bgcolor: "#1D1D1D",
-   
-   p: 4,
+   width: "auto",
+   maxWidth: "md",
+   bgcolor: "#1D1D1D"
 };
 
 const ModalDialog: React.FC<IModalDialogProps> = ({

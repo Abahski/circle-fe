@@ -51,7 +51,19 @@ const ProfileCard = () => {
             border: "5px solid #262626",
           }}
         />
-        <Button onClick={() => setShowEditForm(true)}>Edit Profile</Button>
+        <Button
+          onClick={() => setShowEditForm(true)}
+          variant="outlined"
+          sx={{
+            color: "white",
+            borderRadius: "20px",
+            borderColor: "#FFFFFF",
+            justifyContent: "end",
+            display: "flex",
+          }}
+        >
+          Edit Profile
+        </Button>
         <ModalDialog callback={handleShowEditForm} show={showEditForm}>
           <div>
             {showEditForm && (
@@ -66,11 +78,15 @@ const ProfileCard = () => {
       <Typography>{profile?.bio}</Typography>
       <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Typography sx={{ fontWeight: 700 }}>{profile?.user.follower.length}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>
+            {profile?.user.follower.length}
+          </Typography>
           <Typography sx={{ ml: 0.5 }}>Following</Typography>
         </Box>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Typography sx={{ fontWeight: 700 }}>{profile?.user.following.length}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>
+            {profile?.user.following.length}
+          </Typography>
           <Typography sx={{ ml: 0.5 }}>Folower</Typography>
         </Box>
       </Box>

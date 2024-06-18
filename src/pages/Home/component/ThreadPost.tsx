@@ -97,7 +97,7 @@ const ThreadPost: React.FC<IThreadPostProps> = ({ threadId, callback }) => {
             <Button
                onClick={handlePostThread}
                variant="contained"
-               sx={{ backgroundColor: "#04A51E", borderRadius:"full-rounded", ml: -1 }}
+               sx={{ backgroundColor: "#04A51E", borderRadius:"20px", ml: -1 }}
             >
                Post
             </Button>

@@ -156,7 +156,17 @@ const Profile = () => {
             border: "5px solid #262626",
           }}
         />
-        <Button onClick={() => setShowEditForm(true)}>Edit Profile</Button>
+        <Button
+          onClick={() => setShowEditForm(true)}
+          variant="outlined"
+          sx={{
+            color: "white",
+            borderRadius: "20px",
+            borderColor: "#FFFFFF",
+            justifyContent: "end",
+            display: "flex",
+          }}
+        >Edit Profile</Button>
         <ModalDialog callback={handleShowEditForm} show={showEditForm}>
           <div>
             {showEditForm && (
@@ -211,7 +221,7 @@ const Profile = () => {
                     srcSet={`${_host_url + image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                     alt="image"
                     loading="lazy"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{  height: '100%', objectFit: 'cover' }}
                   />
                 </ImageListItem>
               ))}

@@ -34,15 +34,23 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onRegisterClick }) => {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        backgroundColor: "#262626",
+        borderRadius: "10px",
+        padding: "20px",
+        width: "600px",
+        height: "100hv",
+      }}
+    >
       <form onSubmit={handleLogin}>
         <Box
           sx={{
             color: "#04a51e",
             fontSize: "36px",
             fontWeight: 700,
-            height: "64px",
-            marginTop: "20px",
+            marginTop: "10px",
+            marginBottom: "5px",
           }}
         >
           circle
@@ -52,8 +60,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onRegisterClick }) => {
             color: "white",
             fontSize: "28px",
             fontWeight: 700,
-            height: "64px",
-            marginBottom: 3
+            marginBottom: "10px",
           }}
         >
           Login to Circle
@@ -65,6 +72,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onRegisterClick }) => {
             onChange={(e) =>
               setFormInput({ ...formInput, username: e.target.value })
             }
+            InputProps={{ sx: { color: "white", borderRadius: "16px" } }}
           />
           <TextField
             placeholder="Password"
@@ -73,14 +81,35 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onRegisterClick }) => {
             onChange={(e) =>
               setFormInput({ ...formInput, password: e.target.value })
             }
+            InputProps={{ sx: { color: "white", borderRadius: "16px" } }}
           />
-          <Typography>Forgot password?</Typography>
-          <Button type="submit" variant="contained">
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontWeight: 500,
+              justifyContent: "end",
+              display: "flex",
+              width: "100%",
+            }}
+          >
+            Forgot password?
+          </Typography>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ backgroundColor: "#04A51E", borderRadius: "20px", ml: -1 }}
+          >
             LOGIN
           </Button>
-          <Button variant="contained" onClick={onRegisterClick}>
-            REGISTER
-          </Button>
+          <Typography sx={{ color: "#FFFFFF", fontWeight: 500 }}>
+            Don't have an account yet?{" "}
+            <span
+              onClick={onRegisterClick}
+              style={{ cursor: "pointer", color: "#04A51E", fontWeight: 700 }}
+            >
+              Create account
+            </span>
+          </Typography>
         </Box>
       </form>
     </Box>

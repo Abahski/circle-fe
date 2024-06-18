@@ -15,7 +15,7 @@ const Footer = () => {
     >
       <Box fontSize={14} ml={1} display="flex" flexDirection="row">
         <Typography ml={1}>Developed by</Typography>
-        <Typography ml={1} fontSize={15} fontWeight="bold">Reza Liswara</Typography>
+        <Typography ml={1} fontSize={15} fontWeight="bold">Rinaldi Rizqi Fauzi</Typography>
         <Typography color="gray" ml={1}> - </Typography>
         <FaGithub style={{ marginLeft: '1px', color: 'gray', width: '20px', height: '20px' }} />
         <FaLinkedin style={{ marginLeft: '2px', color: 'gray', width: '20px', height: '20px' }} />

@@ -5,6 +5,7 @@ import API from "../../lib/api";
 import { IFollow } from "../../types/app";
 import { getFollowers } from "../../lib/api/call/folllow";
 import { getProfileAsync } from "../../store/slice/auth";
+import { getFollowingById } from "../../store/async/follow";
 
 interface IButtonFollow{
   followingId?: number,
@@ -16,7 +17,6 @@ const ButtonFollow: React.FC<IButtonFollow> = ({ followingId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [follower, setFollower] = useState<boolean>(false);
-  
   
   const Profile = useAppSelector((state) => state.auth.user);
 
@@ -81,6 +81,7 @@ const ButtonFollow: React.FC<IButtonFollow> = ({ followingId }) => {
       );
       const token = localStorage.getItem("token")
       await dispatch(getProfileAsync(token!))
+      await dispatch(getFollowingById())
       setIsFollowing(!isFollowing);
     } catch (error) {
       console.log("error token");

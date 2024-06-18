@@ -21,7 +21,7 @@ const UserFollowing = () => {
 
   useEffect(() => {
     getFollowing();
-  });
+  }, []);
 
   return (
     <Box
